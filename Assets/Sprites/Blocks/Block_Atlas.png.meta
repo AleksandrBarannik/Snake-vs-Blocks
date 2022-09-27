@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5d146359d3ea9bf409fe4d342d871646
+guid: 7ca1af7432329bc4facb1c40074cde10
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -127,49 +127,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: SnakeAddHvost
-      rect:
-        serializedVersion: 2
-        x: 12
-        y: 104
-        width: 162
-        height: 76
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e9850b3302da44c4b801b154b8d2686c
-      internalID: -914992342
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SnakeHead
-      rect:
-        serializedVersion: 2
-        x: 202
-        y: 72
-        width: 314
-        height: 144
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 76ce66f00d36e96489b0ec4e80687b92
-      internalID: 965931139
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
@@ -180,11 +138,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      SnakeAtlas_1: 1353788385
-      SnakeHead: 965931139
-      SnakeAtlas_0: -1836474019
-      SnakeAddHvost: -914992342
+    nameFileIdTable: {}
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
