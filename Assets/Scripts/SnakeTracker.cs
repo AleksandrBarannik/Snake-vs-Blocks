@@ -1,10 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Snake;
 using UnityEngine;
 
 public class SnakeTracker : MonoBehaviour
-{
+{//Движение камеры за змейкой
     [SerializeField]
     private SnakeHead _snakeHead;
 

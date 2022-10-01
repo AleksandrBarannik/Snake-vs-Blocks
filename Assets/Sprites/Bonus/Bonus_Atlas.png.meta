@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7ca1af7432329bc4facb1c40074cde10
+guid: 765f476a1ed363a4cadcf38cb22ebfa8
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -129,64 +129,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Block_Type1
+      name: Up_Tail
       rect:
         serializedVersion: 2
-        x: 55
-        y: 78
-        width: 428
-        height: 337
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 13
+        y: 293
+        width: 161
+        height: 150
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9073c2195e248be429aede56cf939aaf
-      internalID: -1439471008
+      spriteID: 36bbefce4bc99ab4fb982282f05a9267
+      internalID: -809229433
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Block_Type2
+      name: Down_Tail
       rect:
         serializedVersion: 2
-        x: 569
-        y: 78
-        width: 398
-        height: 333
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 252
+        y: 287
+        width: 155
+        height: 155
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4a8c4c9bcb4b5124c91dfbeb638acd47
-      internalID: 1368890883
+      spriteID: 9de97f1d3aae48d4dbab73add2f0981a
+      internalID: 1677640602
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Block_Type3
+      name: Slow_Speed
       rect:
         serializedVersion: 2
-        x: 1038
-        y: 66
-        width: 408
-        height: 356
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 28
+        y: 82
+        width: 149
+        height: 173
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cba20e3b7977cd847b731d6744eff8d1
-      internalID: 282675644
+      spriteID: 0fe516f437a8da14ea0f93d84fcae58b
+      internalID: -2834239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fast_Speed
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 94
+        width: 148
+        height: 168
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a292beda685e794dbe9c76e00f8aa26
+      internalID: 48757235
       vertices: []
       indices: 
       edges: []
@@ -202,9 +223,21 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Block_Type3: 282675644
-      Block_Type1: -1439471008
-      Block_Type2: 1368890883
+      Up_Tail: -809229433
+      Bonus_Atlas_13: 301323026
+      Bonus_Atlas_10: -1091028429
+      Bonus_Atlas_9: -676958452
+      Bonus_Atlas_6: 338860327
+      Bonus_Atlas_3: -1141507888
+      Bonus_Atlas_8: -1463876766
+      Bonus_Atlas_14: -578966910
+      Fast_Speed: 48757235
+      Bonus_Atlas_5: -75603858
+      Bonus_Atlas_12: -307192539
+      Down_Tail: 1677640602
+      Bonus_Atlas_11: 1262118966
+      Slow_Speed: -2834239
+      Bonus_Atlas_7: 200277550
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

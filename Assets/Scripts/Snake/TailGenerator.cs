@@ -1,18 +1,20 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TailGenerator : MonoBehaviour
-{
-   [SerializeField] private int _tailSize;
-   [SerializeField] private Segment _segmentTamplate;
-   public List<Segment> Generate()
+namespace Snake
+{// Отвечает за генерацию хвоста змеи (получает значение от класса Snake
+   public class TailGenerator : MonoBehaviour
    {
-      List<Segment> tail = new List<Segment>();
-      for (int i = 0; i < _tailSize; i++)
+	   
+      [SerializeField] private Segment _segmentTamplate;
+      public List<Segment> Generate(int tailSize)
       {
-         tail.Add(Instantiate(_segmentTamplate,transform));
+         List<Segment> tail = new List<Segment>();
+         for (int i = 0; i < tailSize; i++)
+         {
+            tail.Add(Instantiate(_segmentTamplate,transform));
+         }
+         return tail;
       }
-      return tail;
    }
 }

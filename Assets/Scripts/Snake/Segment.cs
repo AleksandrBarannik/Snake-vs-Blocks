@@ -1,7 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Segment : MonoBehaviour
+namespace Snake
 {
+    public class Segment : MonoBehaviour
+    {
+    }
 }
