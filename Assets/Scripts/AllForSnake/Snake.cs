@@ -1,14 +1,15 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Snake
+namespace AllForSnake
 {
    [RequireComponent(typeof(TailGenerator))]
    [RequireComponent(typeof(SnakeInput))]
    public class Snake : MonoBehaviour
    {
+      public static Snake Instance;
+      
       [SerializeField]
       private SnakeHead _head;
    
@@ -33,7 +34,9 @@ namespace Snake
    
 
       private void Awake()
-      { 
+      {
+         Instance = this;
+         
          _snakeInput = GetComponent<SnakeInput>();
          _tailGenerator = GetComponent<TailGenerator>();
       
@@ -42,16 +45,23 @@ namespace Snake
      
       }
 
+      private void Start()
+      {
+         SizeTailUpdated?.Invoke(Tail.Count);
+      }
+
       private void OnEnable()
       {
-         _head.BlockColided += OnDeleteSegmetTail;
-         _head.BonusCollected += OnBonusCollected;
+         _head.DecreaseBonusCollected += OnDeleteSegmetTail;
+         _head.IncreaseBonusCollected += OnConnectSegmentToTail;
+         _head.BlockCollided += OnDeleteSegmetTail;
       }
 
       private void OnDisable()
       {
-         _head.BlockColided -= OnDeleteSegmetTail;
-         _head.BonusCollected -= OnBonusCollected;
+         _head.DecreaseBonusCollected -= OnDeleteSegmetTail;
+         _head.IncreaseBonusCollected -= OnConnectSegmentToTail;
+         _head.BlockCollided -= OnDeleteSegmetTail;
       }
 
       private void FixedUpdate()
@@ -74,15 +84,18 @@ namespace Snake
          _head.Move(nextPosition);
       }
 
-      public void OnDeleteSegmetTail()
+      public void OnDeleteSegmetTail(int count = 1)
       {
-         Segment deletedSegment = Tail[Tail.Count - 1];
-         Tail.Remove(deletedSegment);
-         Destroy(deletedSegment.gameObject);
-         SizeTailUpdated?.Invoke(Tail.Count);
+         for (int i = 0; i < count; i++)
+         {
+            Segment deletedSegment = Tail[Tail.Count - 1];
+            Tail.Remove(deletedSegment);
+            Destroy(deletedSegment.gameObject);
+            SizeTailUpdated?.Invoke(Tail.Count);
+         }
       }
 
-      private void OnBonusCollected(int bonusSize)
+      private void OnConnectSegmentToTail(int bonusSize)
       {
          Tail.AddRange(_tailGenerator.Generate(bonusSize));
          SizeTailUpdated?.Invoke(Tail.Count);

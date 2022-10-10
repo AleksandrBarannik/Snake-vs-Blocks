@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Snake
+namespace AllForSnake
 {// Отвечает за генерацию хвоста змеи (получает значение от класса Snake
    public class TailGenerator : MonoBehaviour
    {

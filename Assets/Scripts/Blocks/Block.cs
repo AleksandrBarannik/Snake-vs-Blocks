@@ -38,12 +38,5 @@ namespace Blocks
             if (_filling == _destroyPrice)
                 Destroy(gameObject);
         }
-
-
-
-
-
-
-
     }
 }

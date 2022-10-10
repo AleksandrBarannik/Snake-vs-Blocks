@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Snake
+namespace AllForSnake
 {
     public class Segment : MonoBehaviour
     {

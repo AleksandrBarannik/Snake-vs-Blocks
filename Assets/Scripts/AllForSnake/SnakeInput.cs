@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Snake
+namespace AllForSnake
 {
     public class SnakeInput : MonoBehaviour
     {//Для контроля направления движения мыши (за ней следует голова звеи)

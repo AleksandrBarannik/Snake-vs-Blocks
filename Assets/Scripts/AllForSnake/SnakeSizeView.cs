@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-namespace Snake
+namespace AllForSnake
 {
     public class SnakeSizeView : MonoBehaviour
     {

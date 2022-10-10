@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Snake;
+using AllForSnake;
 using UnityEngine;
 
 public class SnakeTracker : MonoBehaviour
