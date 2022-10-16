@@ -1,37 +1,48 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using AllForSnake;
+using Common;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class ObstacleSpawner : MonoBehaviour
 {
-    [SerializeField] private float spawnRate = 4f;
+    [SerializeField] private float spawnRate = 4;
     
-    //[SerializeField] private AnimationCurve dificultCurve;
     
     [Header("Blocks")]
     [SerializeField] private Transform[] points;
     [SerializeField] private GameObject[] blocks;
     [SerializeField] private Transform blocksParent;
+    
 
     [Header("Bounus")] 
-    [SerializeField] private Transform beginPoint;
-    [SerializeField] private Transform endPoint;
+    [SerializeField] private Vector[] spawnVectors;
     [SerializeField] private GameObject[] bonus;
     [SerializeField] private Transform BonusesParent;
 
-    private int _spawnedLines = 0;
+    private float _targetY;
 
     private void Start()
     {
-        InvokeRepeating(nameof(CreateLine), 0, spawnRate);
-        InvokeRepeating(nameof(CreateBonus), 0, spawnRate);
+        _targetY = transform.position.y + spawnRate;
+        
+        CreateLine();
+        CreateBonus();
     }
 
     private void Update()
     {
-        transform.Translate(Vector3.up * Time.deltaTime);
+        transform.position = new Vector3(transform.position.x, SnakeHead.Instance.transform.position.y);
+
+        if (transform.position.y >= _targetY)
+        {
+            CreateLine();
+            CreateBonus();
+            
+            _targetY = transform.position.y + spawnRate;
+        }
     }
 
     private void CreateLine()
@@ -41,25 +52,25 @@ public class ObstacleSpawner : MonoBehaviour
             CreateBlock(point);
         }
 
-        _spawnedLines++;
-        
-        
-        // TODO спавнится блок финиша (финищная черта) (спаунслайн сравнивать с какой -то перемоной количество линий в которой содержится
+       
     }
     
     private void CreateBlock(Transform point)
     {
-        GameObject bloks = Instantiate(blocks[Random.Range(0, blocks.Length)], point.position, Quaternion.identity);
-        bloks.transform.SetParent(blocksParent);
+        GameObject bloks = Instantiate(blocks[Random.Range(0, blocks.Length)],
+            point.position, Quaternion.identity,blocksParent);
     }
 
     private void CreateBonus()
     {
-        Vector3 spawnPosition = new Vector3(
-            Random.Range(beginPoint.position.x, endPoint.position.x),
-            beginPoint.position.y);
+        foreach (var vector in spawnVectors)
+        {
+            Vector3 spawnPosition = new Vector3(
+                Random.Range(vector.beginPoint.position.x, vector.endPoint.position.x),
+                vector.beginPoint.position.y);
 
-        GameObject bonuses = Instantiate(bonus[Random.Range(0, bonus.Length)], spawnPosition, Quaternion.identity);
-        bonuses.transform.SetParent(BonusesParent);
+            Instantiate(bonus[Random.Range(0, bonus.Length)],
+                spawnPosition, Quaternion.identity,BonusesParent);
+        }
     }
 }

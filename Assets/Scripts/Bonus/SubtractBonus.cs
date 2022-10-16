@@ -7,10 +7,10 @@ namespace Bonus
     {
         public override int Collect()
         {
-            _currentBonusSize += _increaseStep;
+            _currentBonusSize += _targetBonusSize;
             OnFillUpdate.Invoke();
             CheckBonusStatus();
-            return _increaseStep;
+            return _targetBonusSize;
         }
     }
 }

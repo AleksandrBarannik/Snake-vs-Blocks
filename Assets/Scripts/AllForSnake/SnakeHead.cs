@@ -1,3 +1,4 @@
+using System;
 using Blocks;
 using Bonus;
 using UnityEngine;
@@ -9,12 +10,24 @@ namespace AllForSnake
     [RequireComponent(typeof(Rigidbody2D))]
     public class SnakeHead : MonoBehaviour
     {
+        public static SnakeHead Instance;
         private Rigidbody2D _rigitBody2d;
 
         public event UnityAction <int> DecreaseBonusCollected;
         public event UnityAction <int> BlockCollided;
         public event UnityAction <int> IncreaseBonusCollected;
-        
+
+
+        private void Awake()
+        {
+            if (Instance)
+            {
+                Destroy(gameObject);
+                return;
+            }
+
+            Instance = this;
+        }
 
         private void Start()
         {
@@ -34,21 +47,8 @@ namespace AllForSnake
                 block.Fill();
             }
 
-            if (collision.gameObject.TryGetComponent(out SubtractBonus bonusSubstract))
-            {
-                DecreaseBonusCollected?.Invoke(1);
-                bonusSubstract.Collect();
-            }
-            
-            if (collision.gameObject.TryGetComponent(out ShareBonus bonusShare))
-            {
-                DecreaseBonusCollected?.Invoke(bonusShare.Collect());
-                bonusShare.Collect();
-            }
         }
-        
-        
-        
+
         public void OnTriggerEnter2D(Collider2D collision)
         {
             if (collision.TryGetComponent(out AddBonus bonusAdd))
@@ -60,7 +60,15 @@ namespace AllForSnake
             {
                 IncreaseBonusCollected?.Invoke(bonusMultiply.Collect());
             }
-               
+            if (collision.gameObject.TryGetComponent(out SubtractBonus bonusSubstract))
+            {
+                DecreaseBonusCollected?.Invoke(bonusSubstract.Collect());
+            }
+            
+            if (collision.gameObject.TryGetComponent(out ShareBonus bonusShare))
+            {
+                DecreaseBonusCollected?.Invoke(bonusShare.Collect());
+            }    
                 
         }
     }
