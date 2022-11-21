@@ -88,10 +88,18 @@ namespace AllForSnake
       {
          for (int i = 0; i < count; i++)
          {
-            Segment deletedSegment = Tail[Tail.Count - 1];
-            Tail.Remove(deletedSegment);
-            Destroy(deletedSegment.gameObject);
-            SizeTailUpdated?.Invoke(Tail.Count);
+            if (Tail.Count != 0)
+            {
+               Segment deletedSegment = Tail[Tail.Count - 1];
+               Tail.Remove(deletedSegment);
+               Destroy(deletedSegment.gameObject);
+               SizeTailUpdated?.Invoke(Tail.Count);
+
+            }
+            else
+            {
+               GameStatusWindow.Instance.EnableLoseScreen();
+            }
          }
       }
 
