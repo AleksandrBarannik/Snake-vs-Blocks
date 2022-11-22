@@ -21,8 +21,19 @@ namespace AllForSnake
       
       [SerializeField]
       private int _tailSize;
-      
-      
+
+      public float Speed
+      {
+         get => _speed;
+         set => _speed = value;
+      }
+
+      public float TailSpringiness
+      {
+         get => _tailSpringiness;
+         set => _tailSpringiness = value;
+      }
+
 
       private SnakeInput _snakeInput;
       public List<Segment> Tail { get; private set; }
